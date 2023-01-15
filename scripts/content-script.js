@@ -22,6 +22,9 @@ function mutateComposeForm() {
 }
 
 window.onload = () => {
+  if (document.getElementsByClassName("editable")[0]) {
+    mutateComposeForm();
+  }
   document
     .getElementsByClassName("T-I T-I-KE L3")[0] // Compose button
     .addEventListener("click", (e) => {
