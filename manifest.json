@@ -1,0 +1,21 @@
+{
+  "name": "smortail",
+  "version": "0.1.0",
+  "description": "github copilot for emails",
+  "permissions": ["storage", "tabs", "webNavigation"],
+  "host_permissions": ["https://mail.google.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["scripts/content-script.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "smortail ⚡️"
+  },
+  "manifest_version": 3
+}
