@@ -2,7 +2,6 @@
   "name": "Smortail 🔥",
   "version": "0.1.0",
   "description": "smortail is github copilot for emails",
-  "default_locale": "en",
   "permissions": ["storage", "tabs", "webNavigation"],
   "icons": {
     "16": "icons/icons8-air-pilot-hat-16.png",
