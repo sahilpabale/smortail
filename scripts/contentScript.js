@@ -97,22 +97,23 @@ document.addEventListener(
 
       // send the ctx to backend
       // host the api and then fetch it
-      let resp = await (
-        await fetch("http://localhost:3000/completion", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: {
-            prompt: ctx,
-          },
-        })
-      ).json();
-
-      let data = resp.message;
-      // editableArea.innerHTML = message.trim().replace(/\r?\n|\r/g, "<br>");
-      editableArea.innerHTML = data;
+      try {
+        let resp = await (
+          await fetch("https://smortail.fly.dev/completion", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify({
+              prompt: ctx,
+            }),
+          })
+        ).json();
+        let data = resp.message;
+        editableArea.innerHTML = data.trim().replace(/\r?\n|\r/g, "<br>");
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
   false,
