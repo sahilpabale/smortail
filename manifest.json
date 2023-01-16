@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "description": "github copilot for emails",
   "permissions": ["storage", "tabs", "webNavigation"],
-  "host_permissions": ["https://mail.google.com/*"],
+  "host_permissions": ["https://mail.google.com/*", "http://localhost:3000/*"],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/*"],
-      "js": ["scripts/content-script.js"]
+      "js": ["scripts/contentScript.js"],
+      "run_at": "document_end"
     }
   ],
   "action": {
