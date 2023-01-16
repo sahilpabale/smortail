@@ -1,9 +1,19 @@
 {
-  "name": "smortail",
+  "name": "Smortail 🔥",
   "version": "0.1.0",
-  "description": "github copilot for emails",
+  "description": "smortail is github copilot for emails",
+  "default_locale": "en",
   "permissions": ["storage", "tabs", "webNavigation"],
-  "host_permissions": ["https://mail.google.com/*", "http://localhost:3000/*"],
+  "icons": {
+    "16": "icons/icons8-air-pilot-hat-16.png",
+    "32": "icons/icons8-air-pilot-hat-32.png",
+    "48": "icons/icons8-air-pilot-hat-48.png",
+    "90": "icons/icons8-air-pilot-hat-90.png"
+  },
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "https://smortail.fly.dev/*"
+  ],
   "background": {
     "service_worker": "background.js"
   },
