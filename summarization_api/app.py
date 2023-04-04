@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
 from newspaper import Article
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
@@ -6,6 +7,7 @@ from string import punctuation
 from heapq import nlargest
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "chrome-extension://pblafdobefpkjepoadmgpknohleibfha"}})
 
 def summarize(text, per):
     nlp = spacy.load('en_core_web_sm')
@@ -38,6 +40,7 @@ def summarize(text, per):
     return summary
 
 @app.route("/api/summarize", methods=["POST"])
+@cross_origin()
 def api():
     data = request.get_json()
     url = data["url"].strip()
@@ -52,6 +55,7 @@ def api():
     }
 
 @app.route("/")
+@cross_origin()
 def home():
     return "Hello World!"
 
