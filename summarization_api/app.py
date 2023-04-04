@@ -51,3 +51,10 @@ def api():
         "article": article.text,
         "summary": summarize(article.text, 0.1)
     }
+
+@app.route("/")
+def home():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
