@@ -16,11 +16,21 @@
   "background": {
     "service_worker": "background.js"
   },
+  "content_security_policy": {
+    "default-src": ["'self'"],
+    "script-src": ["'self'", "'unsafe-inline'"]
+  },
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/*"],
       "js": ["scripts/contentScript.js"],
       "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.js", "summary.js", "summary.html"],
+      "matches": ["<all_urls>"]
     }
   ],
   "action": {
