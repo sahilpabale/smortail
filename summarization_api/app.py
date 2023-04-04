@@ -1,6 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from newspaper import Article
-from newspaper import Config
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
