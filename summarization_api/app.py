@@ -51,7 +51,7 @@ def api():
     return {
         "success": True,
         "article": article.text,
-        "summary": summarize(article.text, 0.1)
+        "summary": summarize(article.text, 0.3)
     }
 
 @app.route("/")
